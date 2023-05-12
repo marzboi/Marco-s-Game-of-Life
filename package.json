@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "sass": "sass sass/styles.scss:styles/styles.css -w",
+    "sass": "sass sass/styles.scss:dist/styles/styles.css -w",
     "build": "tsc --watch",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --coverage --watchAll=false",
