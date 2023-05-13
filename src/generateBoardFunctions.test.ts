@@ -1,4 +1,4 @@
-import { generateGameBoard } from "./gameOfLife";
+import { generateGameBoard } from "./generateBoardFunctions";
 
 describe("Given the function generateGameBoard", () => {
   describe("When given the row value of 2 and the column value of 2", () => {
