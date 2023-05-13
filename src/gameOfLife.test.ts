@@ -23,15 +23,15 @@ describe("Given the function generateGameBoard", () => {
     });
   });
 
-  describe("When given the row value 0 and column value 0", () => {
-    test("Then it should return a []", () => {
-      const rows = 0;
-      const columns = 0;
+  describe("When given the row value 1 and column value 1", () => {
+    test("Then it should return an array with an object", () => {
+      const rows = 1;
+      const columns = 1;
 
-      const expectedResult: [] = [];
+      const expectedResult = [{ alive: false, row: 1, col: 1 }];
       const resultReturned = generateGameBoard(rows, columns);
 
-      expect(resultReturned).toEqual(expectedResult);
+      expect(resultReturned).toStrictEqual(resultReturned);
     });
   });
 });

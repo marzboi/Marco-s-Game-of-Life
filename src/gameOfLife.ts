@@ -48,7 +48,7 @@ export const generateGameBoardWithRandomCells = (
   return boardLogic;
 };
 
-export const printBoard = (board: object[][]) => {
+export const printBoard = (board: any) => {
   let message = "";
   for (let row = 0; row < board.length; row++) {
     for (let column = 0; column < board[row].length; column++) {
@@ -63,7 +63,7 @@ export const printBoard = (board: object[][]) => {
   return message;
 };
 
-export const checkNeighboard = (board: object[][]) => {
+export const checkNeighboard = (board: any) => {
   for (let row = 0; row < board.length; row++) {
     for (let column = 0; column < board[row].length; column++) {
       const cellToCheck = board[row][column];
