@@ -35,3 +35,9 @@ describe("Given the function generateGameBoard", () => {
     });
   });
 });
+
+describe("Given the function generateGameBoardWithRandomCells", () => {
+  describe("When give the values of rows 2 and column 2", () => {
+    test("Then it should return an array with objects", () => {});
+  });
+});
