@@ -1,53 +1,53 @@
-export const checkNeighbour = (board: any) => {
+const checkNeighboard = (board) => {
+  const cellsLiveCount = [];
   for (let row = 0; row < board.length; row++) {
+    const livedCellsRows = [];
     for (let column = 0; column < board[row].length; column++) {
       const cellToCheck = board[row][column];
-      let count = 0;
+      let cellsAround = 0;
       if (
         board[row - 1] &&
         board[row - 1][column - 1] &&
         board[row - 1][column - 1].alive
       ) {
-        count += 1;
+        cellsAround += 1;
       }
       if (board[row - 1] && board[row - 1][column].alive) {
-        count += 1;
+        cellsAround += 1;
       }
       if (
         board[row - 1] &&
         board[row - 1][column + 1] &&
         board[row - 1][column + 1].alive
       ) {
-        count += 1;
+        cellsAround += 1;
       }
       if (board[row][column - 1] && board[row][column - 1].alive) {
-        count += 1;
+        cellsAround += 1;
       }
       if (board[row][column + 1] && board[row][column + 1].alive) {
-        count += 1;
+        cellsAround += 1;
       }
       if (
         board[row + 1] &&
         board[row + 1][column - 1] &&
         board[row + 1][column - 1].alive
       ) {
-        count += 1;
+        cellsAround += 1;
       }
       if (board[row + 1] && board[row + 1][column].alive) {
-        count += 1;
+        cellsAround += 1;
       }
       if (
         board[row + 1] &&
         board[row + 1][column + 1] &&
         board[row + 1][column + 1].alive
       ) {
-        count += 1;
+        cellsAround += 1;
       }
-      if (count >= 2 && count < 4) {
-        cellToCheck.alive = true;
-      } else {
-        cellToCheck.alive = false;
-      }
+      livedCellsRows.push(cellsAround);
     }
+    cellsLiveCount.push(livedCellsRows);
   }
+  return cellsLiveCount;
 };
