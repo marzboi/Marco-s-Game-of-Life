@@ -1,4 +1,4 @@
-const generateGamingBoard = (rows: number, columns: number) => {
+const generateUserGameBoard = (rows: number, columns: number) => {
   const gameTable = document.querySelector(".game-table") as Element;
 
   for (let row = 1; row <= rows; row++) {
@@ -7,7 +7,6 @@ const generateGamingBoard = (rows: number, columns: number) => {
 
     for (let column = 1; column <= columns; column++) {
       rowTable.innerHTML += `<div class="col row-${row}-col-${column}"></div>`;
-      const colPart = document.querySelector(`.row-${row}-col-${column}`);
     }
   }
 };
