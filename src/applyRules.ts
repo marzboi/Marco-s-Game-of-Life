@@ -1,4 +1,4 @@
-import { Cell } from "./cellInterface";
+import { Cell } from "./cellInterface.js";
 
 export const applyRules = (board: Cell[][], cellCount: number[][]) => {
   for (let row = 0; row < board.length; row++) {
