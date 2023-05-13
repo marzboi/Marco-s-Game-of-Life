@@ -1,5 +1,7 @@
-import { execPath } from "process";
-import { generateGameBoard } from "./generateBoardFunctions";
+import {
+  generateGameBoard,
+  generateGameBoardWithRandomCells,
+} from "./generateBoardFunctions";
 import { printBoard } from "./printBoard";
 
 describe("Given the function printBoard", () => {
@@ -11,6 +13,17 @@ describe("Given the function printBoard", () => {
       const resultReturned = printBoard(board);
 
       expect(resultReturned).toBe(expectedResult);
+    });
+  });
+
+  describe("When given the values of a board with 1 and 1", () => {
+    test("Then it should return a string with the message", () => {
+      const board = generateGameBoardWithRandomCells(1, 1);
+
+      const expectedResult = " 1 \n";
+      const resultReturned = printBoard(board);
+
+      expect(resultReturned).toHaveBeenCalledWith(expect.any(String));
     });
   });
 });
