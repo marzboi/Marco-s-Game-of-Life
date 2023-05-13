@@ -1,4 +1,6 @@
-const checkNeighboard = (board) => {
+import { Cell } from "./cellInterface";
+
+export const checkNeighboard = (board: Cell[][]) => {
   const cellsLiveCount = [];
   for (let row = 0; row < board.length; row++) {
     const livedCellsRows = [];
