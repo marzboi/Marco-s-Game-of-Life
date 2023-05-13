@@ -1,6 +1,6 @@
-import { Cell } from "./cellInterface";
+import { Cell } from "./cellInterface.js";
 
-export const placeTokenOnBoard = (
+export const placeCellOnBoard = (
   row: number,
   column: number,
   board: Cell[][]

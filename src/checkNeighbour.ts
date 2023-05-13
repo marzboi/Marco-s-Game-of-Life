@@ -1,4 +1,4 @@
-import { Cell } from "./cellInterface";
+import { Cell } from "./cellInterface.js";
 
 export const checkNeighboard = (board: Cell[][]) => {
   const cellsLiveCount = [];
