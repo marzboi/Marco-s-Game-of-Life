@@ -19,7 +19,7 @@ describe("Given the function generateGameBoard", () => {
 
       const resultReturned = generateGameBoard(rows, columns);
 
-      expect(resultReturned).toEqual(resultReturned);
+      expect(resultReturned).toEqual(expectedResult);
     });
   });
 });
