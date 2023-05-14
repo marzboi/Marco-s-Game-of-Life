@@ -32,6 +32,10 @@
   }
 
   .container-table {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
     height: 100%;
     div {
       background-color: black;
@@ -41,6 +45,20 @@
         min-height: 10px;
         background-color: gray;
         border: 0.5px solid black;
+        .cell-button {
+          opacity: 0%;
+          width: 100%;
+          height: 100%;
+          padding: 0%;
+          cursor: pointer;
+        }
+      }
+
+      .alive {
+        background-color: green;
+      }
+      .dead {
+        background-color: gray;
       }
     }
   }
