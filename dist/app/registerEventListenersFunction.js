@@ -104,6 +104,7 @@ export const registerEventListeners = (currentBoard) => {
         clearInterval(interval);
         startButton.textContent = "Start";
         gameRunning = false;
+        registerEventListeners(currentBoard);
     });
 };
 export const startProgram = () => {

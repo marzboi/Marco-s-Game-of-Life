@@ -132,6 +132,7 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
     clearInterval(interval);
     startButton.textContent = "Start";
     gameRunning = false;
+    registerEventListeners(currentBoard);
   });
 };
 
