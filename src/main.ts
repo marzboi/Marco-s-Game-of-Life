@@ -21,4 +21,4 @@ const placeCellOnBoard = (
   const cellToPlace = document.querySelector("3");
 };
 
-generateUserGameBoard(30, 30);
+generateUserGameBoard(100, 100);
