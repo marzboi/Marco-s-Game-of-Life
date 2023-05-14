@@ -1,5 +1,7 @@
+import { Cell } from "./cellInterface.js";
+
 const generateUserGameBoard = (rows: number, columns: number) => {
-  const gameTable = document.querySelector(".game-table") as Element;
+  const gameTable = document.querySelector(".container-table") as Element;
 
   for (let row = 1; row <= rows; row++) {
     gameTable.innerHTML += `<div class="row table-row-${row}"></div>`;
@@ -10,3 +12,16 @@ const generateUserGameBoard = (rows: number, columns: number) => {
     }
   }
 };
+
+const placeCellOnBoard = (
+  row: number,
+  column: number,
+  currentBoard: Cell[][]
+) => {
+  const cellToPlace = document.querySelector(
+    `.row-${row}-col-${column}`
+  ) as Element;
+  cellToPlace.classList.add("alive");
+};
+
+generateUserGameBoard(100, 100);
