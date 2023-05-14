@@ -1,4 +1,4 @@
-import { generateGameBoard } from "./generateBoardFunctions";
+import { generateGameBoard, generateRandomCells, } from "./generateBoardFunctions";
 describe("Given the function generateGameBoard", () => {
     describe("When given the row value of 2 and the column value of 2", () => {
         test("Then it should return a board with 2 columns and 2 rows", () => {
@@ -28,8 +28,15 @@ describe("Given the function generateGameBoard", () => {
         });
     });
 });
-describe("Given the function generateGameBoardWithRandomCells", () => {
-    describe("When give the values of rows 2 and column 2", () => {
-        test("Then it should return an array with objects", () => { });
+describe("Given the function generateRandomCells", () => {
+    describe("When given the values of 2, 2", () => {
+        test("Then it should return an array with legth of 2", () => {
+            const rows = 2;
+            const columns = 2;
+            const expectedLength = 2;
+            const resultReturned = generateGameBoard(rows, columns);
+            generateRandomCells(resultReturned);
+            expect(resultReturned).toHaveLength(expectedLength);
+        });
     });
 });
