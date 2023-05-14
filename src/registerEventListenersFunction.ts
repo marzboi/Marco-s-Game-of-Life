@@ -74,6 +74,10 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
   const resetButton = document.querySelector(".reset");
   const startButton = document.querySelector(".start");
   const randomButton = document.querySelector(".random");
+  const userRows = document.querySelector(".rows");
+  const userColumns = document.querySelector(".columns");
+  const gameTable = document.querySelector(".container-table") as Element;
+
   let gameRunning = false;
   let interval;
 
@@ -107,7 +111,23 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
   });
 
   resetButton?.addEventListener("click", () => {
-    currentBoard = generateGameBoard(60, 80);
+    gameTable.innerHTML = "";
+    let rows = Number(userRows?.value);
+    let columns = Number(userColumns?.value);
+
+    if (rows < 10) {
+      rows = 10;
+    } else if (rows > 60) {
+      rows = 60;
+    }
+    if (columns < 10) {
+      columns = 10;
+    } else if (columns > 100) {
+      columns = 100;
+    }
+
+    currentBoard = generateGameBoard(rows, columns);
+    generateUserGameBoard(rows, columns);
     paintBoard(currentBoard);
     clearInterval(interval);
     startButton.textContent = "Start";
@@ -116,7 +136,7 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
 };
 
 export const startProgram = () => {
-  const rows = 60;
+  const rows = 40;
   const columns = 80;
   const currentBoard = generateGameBoard(rows, columns);
   generateUserGameBoard(rows, columns);
