@@ -10,7 +10,9 @@ const generateUserGameBoard = (rows: number, columns: number) => {
 
     for (let column = 1; column <= columns; column++) {
       rowTable.innerHTML += `<div class="col row-${row}-col-${column}"></div>`;
-      const colPart = document.querySelector(`.row-${row}-col-${column}`);
+      const colPart = document.querySelector(
+        `.row-${row}-col-${column}`
+      ) as Element;
 
       for (let button = 0; button < 1; button++) {
         colPart.innerHTML += `<button id="${row} "value="${column}" class="cell-button"></button>`;
@@ -41,12 +43,13 @@ const placeCellOnBoard = (
 };
 
 const registerEventListeners = (currentBoard: Cell[][]) => {
-  console.log(currentBoard);
   const cells = document.querySelectorAll(".cell-button");
+  const resetButton = document.querySelector(".reset");
+  const startButton = document.querySelector(".start");
+  const randomButton = document.querySelector(".random");
 
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
-      console.log(cell);
       const row = parseInt(cell.id);
       const column = parseInt(cell.value);
       console.log(row, column);
@@ -56,8 +59,8 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
 };
 
 const startGame = () => {
-  const rows = 5;
-  const columns = 5;
+  const rows = 80;
+  const columns = 80;
   const currentBoard = generateGameBoard(rows, columns);
   generateUserGameBoard(rows, columns);
   registerEventListeners(currentBoard);
