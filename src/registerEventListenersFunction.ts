@@ -8,6 +8,7 @@ import { checkNeighboard } from "./checkNeighbour.js";
 
 export const generateUserGameBoard = (rows: number, columns: number) => {
   const gameTable = document.querySelector(".container-table") as Element;
+  gameTable.innerHTML = "";
 
   for (let row = 1; row <= rows; row++) {
     gameTable.innerHTML += `<div class="row table-row-${row}"></div>`;
@@ -112,9 +113,9 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
 
   resetButton?.addEventListener("click", () => {
     gameTable.innerHTML = "";
+
     let rows = Number(userRows?.value);
     let columns = Number(userColumns?.value);
-
     if (rows < 10) {
       rows = 10;
     } else if (rows > 60) {
@@ -129,10 +130,18 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
     currentBoard = generateGameBoard(rows, columns);
     generateUserGameBoard(rows, columns);
     paintBoard(currentBoard);
+
     clearInterval(interval);
     startButton.textContent = "Start";
     gameRunning = false;
-    registerEventListeners(currentBoard);
+    const cells = document.querySelectorAll(".cell-button");
+    cells.forEach((cell) => {
+      cell.addEventListener("click", () => {
+        const row = parseInt(cell.id);
+        const column = parseInt(cell.value);
+        placeCellOnBoard(row, column, currentBoard);
+      });
+    });
   });
 };
 

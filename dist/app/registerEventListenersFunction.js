@@ -3,6 +3,7 @@ import { applyRules } from "./applyRules.js";
 import { checkNeighboard } from "./checkNeighbour.js";
 export const generateUserGameBoard = (rows, columns) => {
     const gameTable = document.querySelector(".container-table");
+    gameTable.innerHTML = "";
     for (let row = 1; row <= rows; row++) {
         gameTable.innerHTML += `<div class="row table-row-${row}"></div>`;
         const rowTable = document.querySelector(`.table-row-${row}`);
@@ -104,7 +105,14 @@ export const registerEventListeners = (currentBoard) => {
         clearInterval(interval);
         startButton.textContent = "Start";
         gameRunning = false;
-        registerEventListeners(currentBoard);
+        const cells = document.querySelectorAll(".cell-button");
+        cells.forEach((cell) => {
+            cell.addEventListener("click", () => {
+                const row = parseInt(cell.id);
+                const column = parseInt(cell.value);
+                placeCellOnBoard(row, column, currentBoard);
+            });
+        });
     });
 };
 export const startProgram = () => {
