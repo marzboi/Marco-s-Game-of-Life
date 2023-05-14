@@ -45,6 +45,26 @@ const placeCellOnBoard = (
   }
 };
 
+const paintBoard = (currentBoard: Cell[][]) => {
+  for (let row = 0; row < currentBoard.length; row++) {
+    for (let col = 0; col < currentBoard[row].length; col++) {
+      const cell = currentBoard[row][col];
+
+      if (!cell.alive) {
+        const cellToPlace = document.querySelector(
+          `.row-${row + 1}-col-${col + 1}`
+        ) as Element;
+        cellToPlace.classList.add("dead");
+      } else if (cell.alive) {
+        const cellToPlace = document.querySelector(
+          `.row-${row + 1}-col-${col + 1}`
+        ) as Element;
+        cellToPlace.classList.add("alive");
+      }
+    }
+  }
+};
+
 const registerEventListeners = (currentBoard: Cell[][]) => {
   const cells = document.querySelectorAll(".cell-button");
   const resetButton = document.querySelector(".reset");
@@ -55,13 +75,13 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
     cell.addEventListener("click", () => {
       const row = parseInt(cell.id);
       const column = parseInt(cell.value);
-      console.log(row, column);
       placeCellOnBoard(row, column, currentBoard);
     });
   });
 
   randomButton?.addEventListener("click", () => {
     generateRandomCells(currentBoard);
+    paintBoard(currentBoard);
   });
 };
 
