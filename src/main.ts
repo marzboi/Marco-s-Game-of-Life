@@ -1,5 +1,8 @@
 import { Cell } from "./cellInterface.js";
-import { generateGameBoard } from "./generateBoardFunctions.js";
+import {
+  generateGameBoard,
+  generateRandomCells,
+} from "./generateBoardFunctions.js";
 
 const generateUserGameBoard = (rows: number, columns: number) => {
   const gameTable = document.querySelector(".container-table") as Element;
@@ -56,9 +59,13 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
       placeCellOnBoard(row, column, currentBoard);
     });
   });
+
+  randomButton?.addEventListener("click", () => {
+    generateRandomCells(currentBoard);
+  });
 };
 
-const startGame = () => {
+const startProgram = () => {
   const rows = 80;
   const columns = 80;
   const currentBoard = generateGameBoard(rows, columns);
@@ -66,4 +73,4 @@ const startGame = () => {
   registerEventListeners(currentBoard);
 };
 
-startGame();
+startProgram();
