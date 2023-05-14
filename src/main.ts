@@ -107,9 +107,13 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
     }
   });
 
-  resetButton?.addEventListener("click", () => {});
-  if (gameRunning) {
-  }
+  resetButton?.addEventListener("click", () => {
+    currentBoard = generateGameBoard(60, 80);
+    paintBoard(currentBoard);
+    clearInterval(interval);
+    startButton.textContent = "Start";
+    gameRunning = false;
+  });
 };
 
 const startProgram = () => {
