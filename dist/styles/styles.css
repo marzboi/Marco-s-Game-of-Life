@@ -142,11 +142,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-family: "Press Start 2P";
   min-width: 375px;
+  background-color: black;
+  height: 100%;
 }
 
 .game-container {
   color: white;
-  background-color: black;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -207,6 +208,15 @@ body {
   padding: 10px;
   font-size: 1.125rem;
   font-family: inherit;
+}
+.game-container .container-buttons input {
+  font-size: 1.125rem;
+  font-family: inherit;
+  padding: 10px;
+  width: 100px;
+}
+.game-container .container-buttons label {
+  font-size: 1.125rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
