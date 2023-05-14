@@ -1,8 +1,11 @@
+import { start } from "repl";
 import { Cell } from "./cellInterface.js";
 import {
   generateGameBoard,
   generateRandomCells,
 } from "./generateBoardFunctions.js";
+import { applyRules } from "./applyRules.js";
+import { checkNeighboard } from "./checkNeighbour.js";
 
 const generateUserGameBoard = (rows: number, columns: number) => {
   const gameTable = document.querySelector(".container-table") as Element;
@@ -54,11 +57,13 @@ const paintBoard = (currentBoard: Cell[][]) => {
         const cellToPlace = document.querySelector(
           `.row-${row + 1}-col-${col + 1}`
         ) as Element;
+        cellToPlace.classList.remove("alive");
         cellToPlace.classList.add("dead");
       } else if (cell.alive) {
         const cellToPlace = document.querySelector(
           `.row-${row + 1}-col-${col + 1}`
         ) as Element;
+        cellToPlace.classList.remove("dead");
         cellToPlace.classList.add("alive");
       }
     }
@@ -82,6 +87,14 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
   randomButton?.addEventListener("click", () => {
     generateRandomCells(currentBoard);
     paintBoard(currentBoard);
+  });
+
+  startButton?.addEventListener("click", () => {
+    setInterval(function () {
+      let neighboardCount = checkNeighboard(currentBoard);
+      applyRules(currentBoard, neighboardCount);
+      paintBoard(currentBoard);
+    }, 100);
   });
 };
 
