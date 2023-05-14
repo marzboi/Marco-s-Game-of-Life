@@ -208,5 +208,14 @@ body {
   font-size: 1.125rem;
   font-family: inherit;
 }
+.game-container .container-buttons input {
+  font-size: 1.125rem;
+  font-family: inherit;
+  padding: 10px;
+  width: 100px;
+}
+.game-container .container-buttons label {
+  font-size: 1.125rem;
+}
 
 /*# sourceMappingURL=styles.css.map */

@@ -72,5 +72,14 @@
       font-size: rem(18);
       font-family: inherit;
     }
+    input {
+      font-size: rem(18);
+      font-family: inherit;
+      padding: 10px;
+      width: 100px;
+    }
+    label {
+      font-size: rem(18);
+    }
   }
 }
