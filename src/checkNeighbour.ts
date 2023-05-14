@@ -5,7 +5,6 @@ export const checkNeighboard = (board: Cell[][]) => {
   for (let row = 0; row < board.length; row++) {
     const livedCellsRows = [];
     for (let column = 0; column < board[row].length; column++) {
-      const cellToCheck = board[row][column];
       let cellsAround = 0;
       if (
         board[row - 1] &&
