@@ -218,5 +218,32 @@ body {
 .game-container .container-buttons label {
   font-size: 1.125rem;
 }
+@media only screen and (max-width: 786px) {
+  .game-container header h1 {
+    font-size: 1.25rem;
+  }
+  .game-container .container-description h2 {
+    font-size: 1rem;
+  }
+  .game-container .container-description ul li {
+    font-size: 0.875rem;
+  }
+  .game-container .container-table div div {
+    min-height: 5px;
+    max-width: 5px;
+  }
+  .game-container .container-buttons button {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
+  .game-container .container-buttons input {
+    font-size: 0.875rem;
+    padding: 8px;
+    width: 50px;
+  }
+  .game-container .container-buttons label {
+    font-size: 0.875rem;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
