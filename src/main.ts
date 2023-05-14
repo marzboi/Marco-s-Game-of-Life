@@ -75,6 +75,8 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
   const resetButton = document.querySelector(".reset");
   const startButton = document.querySelector(".start");
   const randomButton = document.querySelector(".random");
+  let gameRunning = false;
+  let interval;
 
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
@@ -90,16 +92,28 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
   });
 
   startButton?.addEventListener("click", () => {
-    setInterval(function () {
-      let neighboardCount = checkNeighboard(currentBoard);
-      applyRules(currentBoard, neighboardCount);
-      paintBoard(currentBoard);
-    }, 100);
+    if (!gameRunning) {
+      gameRunning = true;
+      startButton.textContent = "Pause";
+      interval = setInterval(() => {
+        const neighboardCount = checkNeighboard(currentBoard);
+        applyRules(currentBoard, neighboardCount);
+        paintBoard(currentBoard);
+      }, 100);
+    } else {
+      gameRunning = false;
+      startButton.textContent = "Start";
+      clearInterval(interval);
+    }
   });
+
+  resetButton?.addEventListener("click", () => {});
+  if (gameRunning) {
+  }
 };
 
 const startProgram = () => {
-  const rows = 80;
+  const rows = 60;
   const columns = 80;
   const currentBoard = generateGameBoard(rows, columns);
   generateUserGameBoard(rows, columns);
