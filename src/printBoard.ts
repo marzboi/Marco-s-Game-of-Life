@@ -5,9 +5,9 @@ export const printBoard = (board: Cell[][]) => {
   for (let row = 0; row < board.length; row++) {
     for (let column = 0; column < board[row].length; column++) {
       if (board[row][column].alive) {
-        message += " 1 ";
+        message += " ❤️ ";
       } else {
-        message += " 0 ";
+        message += " 😒 ";
       }
     }
     message += "\n";
