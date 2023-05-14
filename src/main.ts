@@ -18,7 +18,10 @@ const placeCellOnBoard = (
   column: number,
   currentBoard: Cell[][]
 ) => {
-  const cellToPlace = document.querySelector("3");
+  const cellToPlace = document.querySelector(
+    `.row-${row}-col-${column}`
+  ) as Element;
+  cellToPlace.classList.add("alive");
 };
 
 generateUserGameBoard(100, 100);
