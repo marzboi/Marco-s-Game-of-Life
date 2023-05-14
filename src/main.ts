@@ -1,5 +1,11 @@
+import { start } from "repl";
 import { Cell } from "./cellInterface.js";
-import { generateGameBoard } from "./generateBoardFunctions.js";
+import {
+  generateGameBoard,
+  generateRandomCells,
+} from "./generateBoardFunctions.js";
+import { applyRules } from "./applyRules.js";
+import { checkNeighboard } from "./checkNeighbour.js";
 
 const generateUserGameBoard = (rows: number, columns: number) => {
   const gameTable = document.querySelector(".container-table") as Element;
@@ -42,6 +48,28 @@ const placeCellOnBoard = (
   }
 };
 
+const paintBoard = (currentBoard: Cell[][]) => {
+  for (let row = 0; row < currentBoard.length; row++) {
+    for (let col = 0; col < currentBoard[row].length; col++) {
+      const cell = currentBoard[row][col];
+
+      if (!cell.alive) {
+        const cellToPlace = document.querySelector(
+          `.row-${row + 1}-col-${col + 1}`
+        ) as Element;
+        cellToPlace.classList.remove("alive");
+        cellToPlace.classList.add("dead");
+      } else if (cell.alive) {
+        const cellToPlace = document.querySelector(
+          `.row-${row + 1}-col-${col + 1}`
+        ) as Element;
+        cellToPlace.classList.remove("dead");
+        cellToPlace.classList.add("alive");
+      }
+    }
+  }
+};
+
 const registerEventListeners = (currentBoard: Cell[][]) => {
   const cells = document.querySelectorAll(".cell-button");
   const resetButton = document.querySelector(".reset");
@@ -52,13 +80,25 @@ const registerEventListeners = (currentBoard: Cell[][]) => {
     cell.addEventListener("click", () => {
       const row = parseInt(cell.id);
       const column = parseInt(cell.value);
-      console.log(row, column);
       placeCellOnBoard(row, column, currentBoard);
     });
   });
+
+  randomButton?.addEventListener("click", () => {
+    generateRandomCells(currentBoard);
+    paintBoard(currentBoard);
+  });
+
+  startButton?.addEventListener("click", () => {
+    setInterval(function () {
+      let neighboardCount = checkNeighboard(currentBoard);
+      applyRules(currentBoard, neighboardCount);
+      paintBoard(currentBoard);
+    }, 100);
+  });
 };
 
-const startGame = () => {
+const startProgram = () => {
   const rows = 80;
   const columns = 80;
   const currentBoard = generateGameBoard(rows, columns);
@@ -66,4 +106,4 @@ const startGame = () => {
   registerEventListeners(currentBoard);
 };
 
-startGame();
+startProgram();
