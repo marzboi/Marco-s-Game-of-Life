@@ -195,7 +195,7 @@ body {
   cursor: pointer;
 }
 .game-container .container-table div .alive {
-  background-color: green;
+  background-color: blue;
 }
 .game-container .container-table div .dead {
   background-color: gray;

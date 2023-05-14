@@ -135,6 +135,7 @@ export const registerEventListeners = (currentBoard: Cell[][]) => {
     startButton.textContent = "Start";
     gameRunning = false;
     const cells = document.querySelectorAll(".cell-button");
+
     cells.forEach((cell) => {
       cell.addEventListener("click", () => {
         const row = parseInt(cell.id);
