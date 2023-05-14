@@ -81,4 +81,49 @@
       font-size: rem(18);
     }
   }
+
+  @include device {
+    header {
+      h1 {
+        font-size: rem(20);
+      }
+    }
+
+    .container-description {
+      h2 {
+        font-size: rem(16);
+      }
+      ul {
+        li {
+          font-size: rem(14);
+        }
+      }
+    }
+
+    .container-table {
+      div {
+        div {
+          min-height: 5px;
+          max-width: 5px;
+        }
+      }
+    }
+
+    .container-buttons {
+      button {
+        font-size: rem(14);
+        padding: 8px;
+      }
+
+      input {
+        font-size: rem(14);
+        padding: 8px;
+        width: 50px;
+      }
+
+      label {
+        font-size: rem(14);
+      }
+    }
+  }
 }
