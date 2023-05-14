@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="shortcut icon" href="./favicon/favicon.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <title>Marco's Game of Life</title>
+</head>
+
+<body>
+  <div class="game-container">
+    <header>
+      <h1>Marco's Game of Life</h1>
+    </header>
+
+    <section class="container-description">
+      <h2>An evolutionary game for zero players!</h2>
+      <ul>
+        <li>if a living cell has more than three neighbors, it dies</li>
+        <li>if a living cell has less than three neighbors, it dies</li>
+        <li>if a dead cell has exactly three neighbors — it comes to life</li>
+        <li>in other cases, the cell remains in its state</li>
+      </ul>
+    </section>
+
+    <section class="container-table"></section>
+
+    <section class="container-buttons">
+      <button class="reset">Reset</button>
+      <button class="start">Start</button>
+      <button class="random">Random</button>
+    </section>
+
+  </div>
+  <script src="app/main.js" type="module"></script>
+</body>
+
+</html>

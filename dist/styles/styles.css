@@ -1,0 +1,212 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Press Start 2P";
+  min-width: 375px;
+}
+
+.game-container {
+  color: white;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.game-container header h1 {
+  font-size: 2rem;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.game-container .container-description {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.game-container .container-description h2 {
+  font-size: 1.5rem;
+  padding: 5px;
+}
+.game-container .container-description ul li {
+  font-size: 1.125rem;
+  padding: 5px;
+}
+.game-container .container-table {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.game-container .container-table div {
+  background-color: black;
+  display: flex;
+}
+.game-container .container-table div div {
+  min-width: 15px;
+  min-height: 15px;
+  background-color: gray;
+  border: 0.5px solid black;
+}
+.game-container .container-table div div .cell-button {
+  opacity: 0%;
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  cursor: pointer;
+}
+.game-container .container-table div .alive {
+  background-color: green;
+}
+.game-container .container-table div .dead {
+  background-color: gray;
+}
+.game-container .container-buttons {
+  margin-top: 20px;
+  padding: 10px;
+}
+.game-container .container-buttons button {
+  padding: 10px;
+  font-size: 1.125rem;
+  font-family: inherit;
+}
+
+/*# sourceMappingURL=styles.css.map */
